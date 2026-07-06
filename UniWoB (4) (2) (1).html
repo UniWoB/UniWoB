@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniWoB — Academic Opportunities & Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101626;--ink-soft:#39414F;--muted:#6E7686;--paper:#F6F7FB;--card:#FFFFFF;
+    --line:#E7EAF1;--navy:#14213F;--navy-deep:#0D1730;--marigold:#C49A4D;--marigold-deep:#A87E33;
+    --c-sch:#3C4F9E;--c-int:#13876B;--c-exc:#6B52C0;--c-con:#BE8A2A;--c-res:#BD3B4E;
+    --shadow:0 1px 2px rgba(16,22,46,.05), 0 10px 30px rgba(16,22,46,.07);
+    --shadow-lg:0 24px 60px rgba(16,22,46,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'Space Mono',monospace;letter-spacing:.04em}
+  .serif{font-family:'Fraunces',serif}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none}
+  :focus-visible{outline:3px solid var(--marigold);outline-offset:2px;border-radius:4px}
+
+  .nav{position:sticky;top:0;z-index:40;background:rgba(244,246,251,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px}
+  .glyph{width:30px;height:30px;border-radius:8px;background:var(--navy);display:grid;place-items:center;color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:15px;transform:rotate(-4deg)}
+  .nav-links{display:flex;align-items:center;gap:16px;font-size:14.5px;font-weight:500}
+  .nav-links a.lnk{color:var(--ink-soft);padding:4px 2px;border-bottom:2px solid transparent;white-space:nowrap}
+  .nav-links a.lnk:hover{color:var(--ink)}
+  .nav-links a.lnk.active{color:var(--navy);border-bottom-color:var(--marigold)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:10px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;text-align:center;justify-content:center}
+  .btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-deep);transform:translateY(-1px)}
+  .btn-gold{background:var(--marigold);color:#1B1404}.btn-gold:hover{background:var(--marigold-deep);transform:translateY(-1px)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn-ghost:hover{border-color:#c9cfde;transform:translateY(-1px)}
+  .btn-sm{padding:7px 14px;font-size:13px;border-radius:8px}
+  .nav .btn{padding:9px 16px}
+  .saved-pill{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:999px;transition:border-color .15s}
+  .saved-pill:hover{border-color:#c9cfde}
+  .saved-pill svg{fill:none;stroke:var(--c-res);stroke-width:2}.saved-pill.has svg{fill:var(--c-res)}
+  .avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff}
+  @media(max-width:1000px){.nav-links a.lnk{display:none}}
+  @media(max-width:560px){.nav-links .sign-cta{display:none}}
+  .btn-line{background:none;color:var(--ink-soft);font-weight:600;font-size:14.5px;padding:8px 4px}.btn-line:hover{color:var(--ink)}
+
+  .page{animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .section{padding:56px 0}
+  .kicker{font-size:12.5px;text-transform:uppercase;color:var(--marigold-deep);margin-bottom:10px}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,38px);letter-spacing:-.01em}
+  .sec-head p{color:var(--muted);font-size:15px;max-width:48ch;margin-top:8px}
+  .breadcrumb{font-size:13px;color:var(--muted);padding:22px 0 0}.breadcrumb a:hover{color:var(--ink)}
+
+  .hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 88% -10%, #1f2d57 0%, var(--navy) 42%, var(--navy-deep) 100%);color:#fff;padding:70px 0 80px}
+  .hero:before{content:"";position:absolute;inset:0;opacity:.4;background-image:radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1.4px);background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 78%)}
+  .hero-in{position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;text-transform:uppercase;color:#AEB8E6;margin-bottom:22px}
+  .eyebrow b{color:var(--marigold)}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,6vw,62px);line-height:1.02;letter-spacing:-.015em;max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--marigold)}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.1vw,19px);color:#D4DAF4;max-width:56ch}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-stats{margin-top:42px;display:flex;flex-wrap:wrap;gap:14px}
+  .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 18px;min-width:112px}
+  .stat .num{font-family:'Fraunces',serif;font-size:28px;font-weight:600;line-height:1}
+  .stat .lbl{font-size:12px;color:#AEB8E6;margin-top:6px}
+
+  .how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+  @media(max-width:760px){.how-grid{grid-template-columns:1fr}}
+  .step{padding:26px 24px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+  .step .no{font-family:'Space Mono',monospace;font-size:13px;color:var(--marigold-deep);font-weight:700}
+  .step .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin:14px 0 16px;background:#EEF1FB}
+  .step h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin-bottom:7px}
+  .step p{font-size:14px;color:var(--muted)}
+
+  .controls{margin:28px 0 8px;display:flex;flex-direction:column;gap:16px}
+  .searchbar{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px;box-shadow:var(--shadow)}
+  .searchbar svg{flex:none}
+  .searchbar input{border:none;outline:none;width:100%;font-size:15.5px;color:var(--ink);background:transparent}
+  .filter-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);transition:all .15s ease}
+  .chip:hover{border-color:#c9cfde}.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip .ct{opacity:.6;font-weight:700;margin-left:3px}
+  .right-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .ctl{display:flex;align-items:center;gap:8px}.ctl label{font-size:13px;color:var(--muted);font-weight:500}
+  select{font-family:inherit;font-size:14px;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px;cursor:pointer}
+  .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 2px 0}
+  .count-note{font-size:13px;color:var(--muted)}.count-note b{color:var(--ink)}
+  .clear-btn{font-size:13px;color:var(--navy);font-weight:600;background:none;text-decoration:underline;display:none}.clear-btn.show{display:inline}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(308px,1fr));gap:18px;margin-top:22px}
+  .oppcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+  .oppcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#d6dcec}
+  .oc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .tag{font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:5px 11px;border-radius:999px;color:#fff}
+  .save{width:34px;height:34px;border-radius:9px;background:#F4F6FB;display:grid;place-items:center;transition:background .15s, transform .15s}
+  .save:hover{background:#EAEEF8}.save:active{transform:scale(.9)}
+  .save svg{fill:none;stroke:var(--muted);stroke-width:2}.save.on svg{fill:var(--c-res);stroke:var(--c-res)}
+  .oc-code{font-size:11px;color:var(--muted);margin-top:13px}
+  .oc-title{font-family:'Fraunces',serif;font-weight:600;font-size:21px;line-height:1.18;margin:4px 0 6px;letter-spacing:-.01em}
+  .oc-loc{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--ink-soft);font-weight:500}
+  .oc-desc{font-size:14px;color:var(--muted);margin-top:12px;flex:1}
+  .oc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+  .deadline{font-size:12px;color:var(--ink-soft)}
+  .deadline .dl-lbl{color:var(--muted);display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+  .deadline.soon{color:var(--c-res)}
+  .view-btn{font-size:13.5px;font-weight:600;color:var(--navy);background:#EEF1FB;padding:9px 15px;border-radius:9px;transition:background .15s ease}
+  .view-btn:hover{background:#E1E7FA}
+  .empty{grid-column:1/-1;text-align:center;padding:56px 20px;color:var(--muted)}
+  .empty .serif{font-size:22px;color:var(--ink-soft);display:block;margin-bottom:8px}
+
+  .detail-hd{background:var(--navy);color:#fff;border-radius:20px;padding:34px 36px;position:relative;overflow:hidden;margin-top:14px}
+  .detail-hd:before{content:"";position:absolute;inset:0;opacity:.4;background-image:radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1.4px);background-size:24px 24px;mask-image:linear-gradient(110deg,transparent 50%,#000)}
+  .detail-hd .inner{position:relative}
+  .detail-hd h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.01em;margin:14px 0 0;max-width:22ch}
+  .detail-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:14px;color:#C8D0F2}
+  .detail-meta span{display:flex;align-items:center;gap:7px}
+  .detail-body{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;margin-top:28px;align-items:start}
+  @media(max-width:820px){.detail-body{grid-template-columns:1fr}}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+  .panel+.panel{margin-top:18px}
+  .panel h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--marigold-deep);margin-bottom:14px}
+  .panel p{font-size:15px;color:var(--ink-soft)}
+  .ilist{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .ilist li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-soft)}.ilist li svg{flex:none;margin-top:3px}
+  .apply-card{position:sticky;top:84px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+  .apply-card .dl{font-size:13px;color:var(--muted);margin-bottom:4px}
+  .apply-card .big-dl{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin-bottom:18px}
+  .apply-card .big-dl.soon{color:var(--c-res)}
+  .apply-card .btn{width:100%;margin-bottom:10px;padding:13px}
+  .apply-card .save-row{width:100%;justify-content:center;display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--ink-soft);border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff;transition:border-color .15s}
+  .apply-card .save-row:hover{border-color:#c9cfde}
+  .apply-card .save-row svg{fill:none;stroke:var(--c-res);stroke-width:2}.apply-card .save-row.on svg{fill:var(--c-res)}
+  .demo-note{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:840px){.split{grid-template-columns:1fr;gap:30px}}
+  .form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow-lg)}
+  .form-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin-bottom:4px}
+  .form-card .sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  .field{margin-bottom:15px}
+  .field.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);transition:border-color .15s;font-family:inherit}
+  .field textarea{resize:vertical;min-height:84px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy)}
+  .field input.err,.field select.err,.field textarea.err{border-color:var(--c-res);background:#FFF5F5}
+  .form-card .btn-gold,.form-card .btn-primary{width:100%;margin-top:6px;padding:14px}
+  .feat-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+  .feat-list li{display:flex;gap:12px;font-size:15px;color:var(--ink-soft)}
+  .feat-list li .fi{width:38px;height:38px;border-radius:10px;background:#EEF1FB;display:grid;place-items:center;flex:none}
+  .success{text-align:center;padding:18px 6px}
+  .success .ok{width:58px;height:58px;border-radius:50%;background:#E7F8F0;display:grid;place-items:center;margin:0 auto 16px}
+  .success h3{font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin-bottom:8px}
+  .success p{font-size:14.5px;color:var(--muted)}
+  .success .actions{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+  .waitlist{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .waitlist:before{content:"";position:absolute;inset:0;opacity:.32;background-image:radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1.4px);background-size:26px 26px}
+  .wl-in{position:relative}
+  .wl-left h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,40px);line-height:1.05;letter-spacing:-.01em}
+  .wl-left p{color:#CDD4F2;margin-top:16px;font-size:16px;max-width:42ch}
+  .wl-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 16px;font-size:13.5px;margin-top:24px}
+  .wl-badge .dot{width:8px;height:8px;border-radius:50%;background:#46B98C;box-shadow:0 0 0 4px rgba(70,185,140,.25)}
+  .wl-badge b{font-family:'Space Mono',monospace}
+
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  @media(max-width:820px){.who-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.who-grid{grid-template-columns:1fr}}
+  .who{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+  .who .wic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;color:#fff}
+  .who h4{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin-bottom:6px}
+  .who p{font-size:13.5px;color:var(--muted)}
+
+  /* ---- NETWORK / FEED ---- */
+  .feed-layout{display:grid;grid-template-columns:260px 1fr 290px;gap:22px;align-items:start;margin-top:8px}
+  @media(max-width:980px){.feed-layout{grid-template-columns:1fr 290px}.feed-layout .col-left{display:none}}
+  @media(max-width:760px){.feed-layout{grid-template-columns:1fr}.feed-layout .col-right{display:none}}
+  .ncard{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+  .sticky{position:sticky;top:84px}
+  .me-card{overflow:hidden}
+  .me-cover{height:62px;background:radial-gradient(120% 160% at 80% -20%,#243363,var(--navy))}
+  .me-body{padding:0 18px 18px;text-align:center}
+  .me-av{width:64px;height:64px;border-radius:50%;margin:-32px auto 10px;border:3px solid #fff;display:grid;place-items:center;color:#fff;font-weight:700;font-size:22px;font-family:'Fraunces',serif}
+  .me-name{font-family:'Fraunces',serif;font-weight:600;font-size:18px}
+  .me-role{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .me-stats{display:flex;border-top:1px solid var(--line);margin-top:16px}
+  .me-stats div{flex:1;padding:12px 6px}.me-stats div+div{border-left:1px solid var(--line)}
+  .me-stats .v{font-weight:700;font-size:16px;color:var(--navy)}
+  .me-stats .k{font-size:11px;color:var(--muted)}
+  .me-link{display:block;padding:13px;text-align:center;font-size:13.5px;font-weight:600;color:var(--navy);border-top:1px solid var(--line)}
+
+  .composer{padding:16px 18px}
+  .composer .crow{display:flex;gap:12px;align-items:flex-start}
+  .composer textarea{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:14.5px;resize:vertical;min-height:48px;outline:none}
+  .composer textarea:focus{border-color:var(--navy)}
+  .composer .cfoot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-left:54px}
+  .composer .hint{font-size:12px;color:var(--muted)}
+
+  .post{padding:18px 20px;margin-top:18px}
+  .post-hd{display:flex;gap:12px;align-items:flex-start}
+  .post-hd .meta{flex:1;min-width:0}
+  .post-hd .nm{font-weight:700;font-size:14.5px;color:var(--ink)}
+  .post-hd .nm:hover{color:var(--navy)}
+  .post-hd .badge-uni{font-size:10px;font-weight:700;color:#fff;background:var(--c-exc);padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:middle}
+  .post-hd .rl{font-size:12.5px;color:var(--muted)}
+  .post-hd .tm{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .post-body{font-size:14.5px;color:var(--ink-soft);margin:13px 0 0;white-space:pre-wrap}
+  .post-opp{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s}
+  .post-opp:hover{border-color:#cdd5ea;background:#FAFBFE}
+  .post-opp .po-tag{font-size:10.5px;font-weight:700;color:#fff;padding:3px 9px;border-radius:999px;flex:none}
+  .post-opp .po-t{font-weight:600;font-size:14px;color:var(--ink)}
+  .post-opp .po-s{font-size:12px;color:var(--muted)}
+  .post-opp .po-go{margin-left:auto;font-size:13px;font-weight:600;color:var(--navy);flex:none}
+  .post-actions{display:flex;gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+  .pa-btn{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--muted);background:none;padding:7px 12px;border-radius:8px;transition:background .15s,color .15s}
+  .pa-btn:hover{background:#F4F6FB;color:var(--ink-soft)}
+  .pa-btn.liked{color:var(--c-res)}.pa-btn.liked svg{fill:var(--c-res);stroke:var(--c-res)}
+  .pa-btn svg{fill:none;stroke:currentColor;stroke-width:2}
+
+  .rail{padding:18px}
+  .rail h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:14px}
+  .sugg{display:flex;align-items:center;gap:11px;padding:10px 0}
+  .sugg+.sugg{border-top:1px solid var(--line)}
+  .sugg .meta{flex:1;min-width:0}
+  .sugg .nm{font-weight:600;font-size:13.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sugg .nm:hover{color:var(--navy)}
+  .sugg .rl{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .connect-btn{flex:none;font-size:12.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid #c7cfe6;border-radius:8px;padding:6px 12px;transition:all .15s}
+  .connect-btn:hover{background:#EEF1FB}
+  .connect-btn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .avsq{border-radius:10px}
+
+  /* PROFILE */
+  .prof-cover{height:140px;border-radius:20px 20px 0 0;background:radial-gradient(120% 200% at 80% -40%,#243363,var(--navy));position:relative;overflow:hidden}
+  .prof-cover:before{content:"";position:absolute;inset:0;opacity:.4;background-image:radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1.4px);background-size:22px 22px}
+  .prof-card{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 20px 20px;padding:0 32px 28px;box-shadow:var(--shadow);margin-bottom:24px}
+  .prof-top{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:-44px}
+  .prof-av{width:96px;height:96px;border:4px solid #fff;display:grid;place-items:center;color:#fff;font-weight:700;font-size:34px;font-family:'Fraunces',serif;flex:none}
+  .prof-av.circle{border-radius:50%}.prof-av.square{border-radius:20px}
+  .prof-id{flex:1;min-width:200px;padding-bottom:4px}
+  .prof-id h1{font-family:'Fraunces',serif;font-weight:600;font-size:28px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .prof-id .role{font-size:14.5px;color:var(--ink-soft);margin-top:4px}
+  .prof-id .loc{font-size:13px;color:var(--muted);margin-top:6px;display:flex;align-items:center;gap:6px}
+  .prof-actions{display:flex;gap:10px;align-items:center;padding-bottom:6px}
+  .prof-meta{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .prof-meta .pm .v{font-weight:700;font-size:17px;color:var(--navy)}
+  .prof-meta .pm .k{font-size:12px;color:var(--muted)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .pill{font-size:12.5px;font-weight:600;color:var(--ink-soft);background:#F1F4FB;border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+
+  .dash-hd{display:flex;align-items:center;gap:18px;margin-top:8px}
+  .dash-hd .av{width:60px;height:60px;border-radius:50%;background:var(--marigold);color:#241a00;display:grid;place-items:center;font-weight:700;font-size:24px;font-family:'Fraunces',serif}
+  .dash-hd h1{font-family:'Fraunces',serif;font-weight:600;font-size:28px}
+  .dash-hd p{font-size:14px;color:var(--muted)}
+  .dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:26px 0 8px}
+  @media(max-width:720px){.dash-stats{grid-template-columns:1fr 1fr}}
+  .dstat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .dstat .n{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--navy)}
+  .dstat .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .signout{background:none;color:var(--c-res);font-weight:600;font-size:14px}
+
+  footer{padding:40px 0 50px;border-top:1px solid var(--line);background:var(--paper)}
+  .foot-in{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .foot-in .brand{font-size:17px}
+  .foot-links{display:flex;gap:20px;font-size:13.5px;color:var(--ink-soft);flex-wrap:wrap}.foot-links a:hover{color:var(--ink)}
+  .foot-note{font-size:12.5px;color:var(--muted);max-width:52ch}
+  .disclaimer{margin-top:20px;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:inline-flex;gap:9px;align-items:flex-start}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#/" class="brand"><span class="glyph">U</span>UniWoB</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#/opportunities" class="lnk" data-route="opportunities">Opportunities</a>
+      <a href="#/network" class="lnk" data-route="network">Network</a>
+      <a href="#/universities" class="lnk" data-route="universities">For Universities</a>
+      <a href="#/about" class="lnk" data-route="about">About</a>
+      <button class="saved-pill" id="saved-pill" aria-label="Show saved opportunities">
+        <svg width="15" height="15" viewBox="0 0 24 24"><path d="M12 21s-7-4.7-9.3-9.2C1.2 8.6 2.7 5 6 5c2 0 3.2 1.2 4 2.4C10.8 6.2 12 5 14 5c3.3 0 4.8 3.6 3.3 6.8C19 16.3 12 21 12 21Z"/></svg>
+        <span id="saved-count">0</span>
+      </button>
+      <span id="auth-slot"></span>
+    </div>
+  </div>
+</nav>
+<main id="app"></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="#/" class="brand"><span class="glyph">U</span>UniWoB</a>
+      <div class="foot-links">
+        <a href="#/opportunities">Opportunities</a><a href="#/network">Network</a><a href="#/universities">For Universities</a><a href="#/about">About</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7184" stroke-width="2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <span>This is an MVP (demo) built for a university project. Listings, profiles, posts, connections and sign-in are illustrative — nothing is sent or stored, and no real account is created.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ DATA ============ */
+const CAT={Scholarship:{c:'#3C4F9E',code:'SCH'},Internship:{c:'#13876B',code:'INT'},Exchange:{c:'#6B52C0',code:'EXC'},Conference:{c:'#BE8A2A',code:'CON'},Research:{c:'#BD3B4E',code:'RES'}};
+const CC={Germany:'DE','United Kingdom':'GB',Italy:'IT',Canada:'CA',Switzerland:'CH',USA:'US',Netherlands:'NL',Japan:'JP',Kenya:'KE','Türkiye':'TR',Singapore:'SG','Remote / USA':'RM'};
+let DATA=[
+  {n:0,name:'DAAD Study Scholarship',cat:'Scholarship',country:'Germany',deadline:'2026-10-15',desc:"Fully funded master's study at any German public university, with a monthly stipend and travel allowance.",elig:["Bachelor's degree completed before enrolment","Strong academic record (top 20%)","Proof of English or German proficiency"],ben:["€934 monthly stipend","Tuition fully covered","Health insurance + travel grant"]},
+  {n:1,name:'Google Summer of Code',cat:'Internship',country:'Remote / USA',deadline:'2026-04-02',desc:"A paid, remote internship contributing to real open-source projects under experienced mentors.",elig:["18+ and enrolled or self-taught developer","Comfortable with Git and one language","Available ~12 weeks over summer"],ben:["Paid stipend (tiered by region)","1:1 mentorship from maintainers","Portfolio-ready public contribution"]},
+  {n:2,name:'Erasmus+ Exchange Semester',cat:'Exchange',country:'Italy',deadline:'2026-05-20',desc:"Spend one semester studying at a partner university in Italy with credits transferred back home.",elig:["Enrolled in a partner institution","Completed at least one academic year","Minimum GPA set by home faculty"],ben:["Monthly mobility grant","Credits recognised at home","Language & cultural immersion"]},
+  {n:3,name:'ACM Student Research Competition',cat:'Conference',country:'Canada',deadline:'2026-09-01',desc:"Present your undergraduate or graduate research to a panel of experts and compete for awards.",elig:["Current student (UG or PG)","Original, unpublished research","Abstract accepted by committee"],ben:["Travel support for finalists","Cash prizes","Publication in ACM proceedings"]},
+  {n:4,name:'Wellcome Trust Research Fellowship',cat:'Research',country:'United Kingdom',deadline:'2026-11-30',desc:"Funded biomedical and health research positions for early-career scientists at UK institutions.",elig:["PhD or equivalent research experience","A UK host institution and supervisor","Clear independent research proposal"],ben:["Full salary for up to 4 years","Research & consumables budget","Access to Wellcome network"]},
+  {n:5,name:'Chevening Scholarship',cat:'Scholarship',country:'United Kingdom',deadline:'2026-11-05',desc:"Fully funded one-year master's in the UK for future leaders, plus a global alumni network.",elig:["Undergraduate degree completed","2+ years of work experience","Return home for 2 years after"],ben:["Tuition + monthly living costs","Return airfare","Exclusive networking events"]},
+  {n:6,name:'CERN Summer Student Programme',cat:'Internship',country:'Switzerland',deadline:'2026-01-31',desc:"Spend the summer at CERN working on physics, computing or engineering alongside researchers.",elig:["Bachelor or master student in STEM","At least 3 years of university done","Good command of English"],ben:["Subsistence allowance","Lectures by leading scientists","Hands-on lab & data experience"]},
+  {n:7,name:'Fulbright Foreign Student Program',cat:'Exchange',country:'USA',deadline:'2026-05-15',desc:"Graduate study and research in the United States with full funding and cultural exchange.",elig:["Bachelor's degree before start","English proficiency (TOEFL/IELTS)","Citizen of an eligible country"],ben:["Tuition & living stipend","Health coverage","J-1 visa sponsorship"]},
+  {n:8,name:'Heidelberg Laureate Forum',cat:'Conference',country:'Germany',deadline:'2026-02-12',desc:"A week of talks and networking with laureates of mathematics and computer science.",elig:["Undergraduate, PhD or postdoc","Studying maths or computer science","Nominated or self-applied"],ben:["Full travel & accommodation","Direct access to laureates","Interdisciplinary networking"]},
+  {n:9,name:'Marie Skłodowska-Curie Doctoral Network',cat:'Research',country:'Netherlands',deadline:'2026-08-10',desc:"Funded PhD positions hosted across European research networks with international mobility.",elig:["Master's degree or final-year student","Under 4 years research experience","Willing to relocate within the EU"],ben:["Competitive PhD salary","Mobility & family allowance","Cross-border training"]},
+  {n:10,name:'MEXT Japanese Government Scholarship',cat:'Scholarship',country:'Japan',deadline:'2026-06-30',desc:"Government-funded study in Japan, including a preparatory Japanese-language year.",elig:["Under the age limit for your level","Strong grades","Pass embassy screening & exam"],ben:["Full tuition waiver","Monthly allowance","Flights to/from Japan"]},
+  {n:11,name:'UN Volunteers Field Internship',cat:'Internship',country:'Kenya',deadline:'2026-03-25',desc:"A field internship supporting UN agencies on development and humanitarian projects.",elig:["Enrolled in or recent graduate","Interest in development work","Available for on-site placement"],ben:["Monthly living allowance","Field experience with UN teams","Certificate of service"]},
+  {n:12,name:'Mevlana Exchange Programme',cat:'Exchange',country:'Türkiye',deadline:'2026-07-01',desc:"Student and staff exchange between universities in Türkiye and partner institutions worldwide.",elig:["Enrolled at a participating university","Minimum GPA requirement","Approved learning agreement"],ben:["Monthly scholarship","Tuition handled by agreement","Credit recognition"]},
+  {n:13,name:'IEEE International Student Conference',cat:'Conference',country:'Singapore',deadline:'2026-04-18',desc:"Present engineering and technology papers and network with peers and industry in Singapore.",elig:["IEEE student member","Accepted paper or poster","Current student status"],ben:["Reduced student registration","Best-paper awards","Industry networking sessions"]},
+  {n:14,name:'Schmidt Science Fellows',cat:'Research',country:'USA',deadline:'2026-09-22',desc:"Postdoctoral fellowship for scientists pivoting into a new interdisciplinary research field.",elig:["Completing or recent PhD","Strong publication record","Plan to pivot disciplines"],ben:["$110k annual stipend","Global placement at top labs","Leadership development"]},
+];
+let nextId=15;
+
+const UNIS=[
+  {id:'u1',name:'Baku State University',color:'#14213F',country:'Azerbaijan',type:'Public university',followers:2140,about:'Azerbaijan\'s flagship university, sharing scholarships, exchange and research opportunities with its global student community.',tags:['Scholarships','Exchange','Research'],progs:[0,12,9]},
+  {id:'u2',name:'Technical University of Munich',color:'#3C4F9E',country:'Germany',type:'Research university',followers:5830,about:'A leading European technical university hosting DAAD scholarships, doctoral networks and summer research programmes.',tags:['Scholarships','Internships','PhD'],progs:[0,6,9]},
+  {id:'u3',name:'ADA University',color:'#13876B',country:'Azerbaijan',type:'Public university',followers:1620,about:'Sharing exchange programmes, internships and conferences for its undergraduate and graduate students.',tags:['Exchange','Internships','Conferences'],progs:[2,11,3]},
+  {id:'u4',name:'National University of Singapore',color:'#BE8A2A',country:'Singapore',type:'Research university',followers:6410,about:'Hosting international student conferences, research fellowships and exchange partnerships across Asia.',tags:['Conferences','Research','Exchange'],progs:[13,14,7]},
+  {id:'u5',name:'Politecnico di Milano',color:'#6B52C0',country:'Italy',type:'Technical university',followers:3990,about:'Italy\'s top technical university, offering Erasmus+ exchange and design & engineering programmes.',tags:['Exchange','Scholarships','Design'],progs:[2,5,8]},
+];
+const MEMBERS=[
+  {id:'m1',name:'Aysel Məmmədova',color:'#3C4F9E',country:'Azerbaijan',role:'CS undergraduate · Baku State University',headline:'Looking for scholarships & exchange programmes in Europe.',conns:86,interests:['Scholarship','Exchange','Internship']},
+  {id:'m2',name:'Dr. Elvin Quliyev',color:'#13876B',country:'Netherlands',role:'Postdoctoral researcher · TU Munich',headline:'Researching machine learning for healthcare. Open to collaborations.',conns:312,interests:['Research','Conference']},
+  {id:'m3',name:'Nigar Həsənova',color:'#BD3B4E',country:'Azerbaijan',role:'MSc student · ADA University',headline:'Hunting for fully-funded master\'s and research grants.',conns:148,interests:['Scholarship','Research']},
+  {id:'m4',name:'Tural Əliyev',color:'#BE8A2A',country:'Italy',role:'Recent graduate · Politecnico di Milano',headline:'New graduate seeking internships in product design.',conns:74,interests:['Internship','Conference']},
+  {id:'m5',name:'Prof. Sarah Chen',color:'#6B52C0',country:'Singapore',role:'Research lead · National University of Singapore',headline:'Building cross-border research networks for young scientists.',conns:540,interests:['Research','Conference','Exchange']},
+];
+let POSTS=[
+  {by:'u2',t:'3h',text:"📣 Applications are open for the DAAD Study Scholarship — fully funded master's study with a monthly stipend. Tag a friend who should apply!",opp:0,likes:48,comments:7},
+  {by:'m2',t:'6h',text:"Thrilled to share that I've joined the Marie Skłodowska-Curie Doctoral Network! If you're a master's student thinking about a PhD in Europe, the deadline is in August — happy to answer questions.",opp:9,likes:126,comments:21},
+  {by:'u4',t:'1d',text:"Call for papers is now live for the IEEE International Student Conference in Singapore. Undergraduate and graduate students welcome. 🇸🇬",opp:13,likes:73,comments:9},
+  {by:'m1',t:'1d',text:"Just got accepted to an Erasmus+ exchange semester in Italy! 🇮🇹 Two years ago I didn't even know these existed — UniWoB makes them so much easier to find. Happy to share my application tips.",opp:2,likes:204,comments:34},
+  {by:'u3',t:'2d',text:"Welcome to our 200 incoming exchange students this semester! Explore the programmes we share on UniWoB and connect with our community.",opp:null,likes:91,comments:12},
+];
+
+/* ============ STATE ============ */
+const saved=new Set(), connected=new Set(), following=new Set(), liked=new Set();
+let board={q:'',cat:'All',country:'all',sort:'deadline',savedOnly:false};
+let auth={in:false,name:'',email:''};
+let wlCount=248;
+
+const fmtDate=iso=>new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+const isSoon=iso=>(new Date(iso)-new Date())<1000*60*60*24*45;
+const refOf=d=>CAT[d.cat].code+'-'+(CC[d.country]||'XX')+'-'+String(d.n+1).padStart(3,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const initialsOf=n=>n.replace(/^(Dr\.|Prof\.)\s*/,'').split(' ').map(s=>s[0]).slice(0,2).join('').toUpperCase();
+const actor=id=>id[0]==='u'?UNIS.find(u=>u.id===id):MEMBERS.find(m=>m.id===id);
+const app=document.getElementById('app');
+
+/* ============ COMPONENTS ============ */
+function cardHTML(d){
+  const k=CAT[d.cat],soon=isSoon(d.deadline),on=saved.has(d.n);
+  return `<article class="oppcard">
+    <div class="oc-top"><span class="tag" style="background:${k.c}">${d.cat}</span>
+      <button class="save ${on?'on':''}" data-save="${d.n}" aria-pressed="${on}" aria-label="Save"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M12 21s-7-4.7-9.3-9.2C1.2 8.6 2.7 5 6 5c2 0 3.2 1.2 4 2.4C10.8 6.2 12 5 14 5c3.3 0 4.8 3.6 3.3 6.8C19 16.3 12 21 12 21Z"/></svg></button></div>
+    <div class="oc-code mono">${refOf(d)}</div>
+    <h3 class="oc-title">${esc(d.name)}</h3>
+    <div class="oc-loc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(d.country)}</div>
+    <p class="oc-desc">${esc(d.desc)}</p>
+    <div class="oc-foot"><div class="deadline ${soon?'soon':''}"><span class="dl-lbl">Deadline</span><span class="mono">${fmtDate(d.deadline)}</span></div>
+      <a class="view-btn" href="#/opportunity/${d.n}">View Details</a></div>
+  </article>`;
+}
+function avHTML(id,size,cls){
+  const a=actor(id),sq=id[0]==='u';
+  return `<span class="avatar ${sq?'avsq':''} ${cls||''}" style="width:${size}px;height:${size}px;background:${a.color};font-size:${Math.round(size*0.4)}px">${esc(initialsOf(a.name))}</span>`;
+}
+function howHTML(){return `<section class="section how"><div class="wrap">
+  <div class="sec-head"><div class="kicker mono">In three steps</div><h2>How UniWoB works</h2></div>
+  <div class="how-grid">
+    <div class="step"><div class="no">STEP 01</div><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3C4F9E" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Browse the board</h3><p>Search and filter scholarships, internships, exchanges, conferences and research by category and country.</p></div>
+    <div class="step"><div class="no">STEP 02</div><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B52C0" stroke-width="2"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div><h3>Connect &amp; follow</h3><p>Follow universities and connect with students and researchers in the academic network.</p></div>
+    <div class="step"><div class="no">STEP 03</div><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13876B" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg></div><h3>Join &amp; apply</h3><p>Join the waitlist to get matched opportunities, or head straight to the official application.</p></div>
+  </div></div></section>`;}
+function waitlistHTML(){return `<section class="section waitlist"><div class="wrap wl-in"><div class="split">
+  <div class="wl-left"><h2>Be first when UniWoB opens.</h2>
+    <p>Join the waitlist and we'll send a curated shortlist of opportunities matched to your interest — before public launch.</p>
+    <div class="wl-badge"><span class="dot"></span> <b id="wl-count">${wlCount}</b>&nbsp;students already waiting</div></div>
+  <div class="form-card" id="wl-form"><div id="wl-view">
+    <h3>Join the waitlist</h3><p class="sub">Takes 20 seconds. No spam — just opportunities.</p>
+    <div class="field"><label for="f-name">Full name</label><input id="f-name" type="text" placeholder="Aysel Məmmədova"></div>
+    <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="aysel@university.edu"></div>
+    <div class="field"><label for="f-uni">University</label><input id="f-uni" type="text" placeholder="Baku State University"></div>
+    <div class="field"><label for="f-interest">Main interest</label><select id="f-interest"><option value="">Choose one…</option><option>Scholarship</option><option>Internship</option><option>Exchange</option><option>Conference</option><option>Research</option></select></div>
+    <button class="btn btn-gold" id="wl-submit">Join waitlist →</button>
+  </div></div></div></div></section>`;}
+function wireWaitlist(){
+  const b=document.getElementById('wl-submit'); if(!b)return;
+  b.onclick=()=>{
+    const name=document.getElementById('f-name'),email=document.getElementById('f-email'),uni=document.getElementById('f-uni'),interest=document.getElementById('f-interest');
+    let ok=true;[name,email,uni].forEach(f=>{f.classList.toggle('err',!f.value.trim());if(!f.value.trim())ok=false;});
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.classList.add('err');ok=false;}
+    interest.classList.toggle('err',!interest.value);if(!interest.value)ok=false;
+    if(!ok)return;
+    wlCount++;
+    if(!auth.in){auth={in:true,name:name.value,email:email.value};renderAuthSlot();}
+    document.getElementById('wl-view').innerHTML=`<div class="success"><div class="ok"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#13876B" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></div><h3>You're on the list, ${esc(name.value.split(' ')[0])}!</h3><p>We'll send opportunities matched to <b>${esc(interest.value)}</b> at <b>${esc(email.value)}</b> before launch.</p><div class="actions"><a class="btn btn-primary" href="#/account">Go to my account →</a></div></div>`;
+  };
+}
+
+/* ============ PAGES ============ */
+function pageHome(){
+  const featured=[...DATA].sort((a,b)=>new Date(a.deadline)-new Date(b.deadline)).slice(0,3);
+  app.innerHTML=`<div class="page">
+    <header class="hero"><div class="wrap hero-in">
+      <div class="eyebrow mono">Academic Opportunities &amp; Network <span>·</span> <b>MVP DEMO</b></div>
+      <h1>Find opportunities. <em>Connect</em> with your academic world.</h1>
+      <p class="lead">Scholarships, internships, exchanges, conferences and research in one searchable board — plus a network where universities, students and researchers connect, follow and share. Built for students who don't want to miss the deadline.</p>
+      <div class="hero-cta"><a href="#/opportunities" class="btn btn-gold">Explore Opportunities →</a><a href="#/network" class="btn btn-ghost" style="background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.2)">Visit the network</a></div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">${DATA.length}</div><div class="lbl">Open opportunities</div></div>
+        <div class="stat"><div class="num">${UNIS.length}</div><div class="lbl">Universities</div></div>
+        <div class="stat"><div class="num">${new Set(DATA.map(d=>d.country)).size}</div><div class="lbl">Countries</div></div>
+      </div></div></header>
+    ${howHTML()}
+    <section class="section wrap">
+      <div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
+        <div><div class="kicker mono">Closing soon</div><h2>Featured opportunities</h2></div>
+        <a href="#/opportunities" class="btn-line">View all ${DATA.length} →</a>
+      </div>
+      <div class="grid">${featured.map(cardHTML).join('')}</div>
+    </section>
+    ${waitlistHTML()}
+  </div>`;
+  wireWaitlist();
+}
+
+function pageBoard(){
+  app.innerHTML=`<div class="page"><section class="section wrap">
+    <div class="sec-head"><div class="kicker mono">Browse the board</div><h2>Explore opportunities</h2><p>Use search and filters to narrow down by what you study and where you want to go.</p></div>
+    <div class="controls">
+      <div class="searchbar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B7184" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="text" placeholder="Search by name, keyword or country…" aria-label="Search"></div>
+      <div class="filter-row"><div class="chips" id="chips" role="tablist" aria-label="Filter by category"></div>
+        <div class="right-controls">
+          <div class="ctl"><label for="sort">Sort</label><select id="sort"><option value="deadline">Deadline · soonest</option><option value="name">Name · A–Z</option></select></div>
+          <div class="ctl"><label for="country">Country</label><select id="country"><option value="all">All countries</option></select></div>
+        </div></div></div>
+    <div class="meta-row"><div class="count-note"><b id="result-count">0</b> opportunities shown</div><button class="clear-btn" id="clear-btn">Clear filters</button></div>
+    <div class="grid" id="grid"></div>
+  </section></div>`;
+  const chipsEl=document.getElementById('chips');
+  const catCount=c=>c==='All'?DATA.length:DATA.filter(d=>d.cat===c).length;
+  ['All',...Object.keys(CAT)].forEach(c=>{
+    const b=document.createElement('button');
+    b.className='chip'+((board.cat===c&&!board.savedOnly)?' active':'');b.dataset.cat=c;b.setAttribute('role','tab');
+    b.innerHTML=c+` <span class="ct">${catCount(c)}</span>`;
+    b.onclick=()=>{board.cat=c;board.savedOnly=false;[...chipsEl.children].forEach(x=>x.classList.toggle('active',x.dataset.cat===c));renderGrid();};
+    chipsEl.appendChild(b);
+  });
+  const countryEl=document.getElementById('country');
+  [...new Set(DATA.map(d=>d.country))].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;if(board.country===c)o.selected=true;countryEl.appendChild(o);});
+  countryEl.onchange=e=>{board.country=e.target.value;renderGrid();};
+  const sortEl=document.getElementById('sort');sortEl.value=board.sort;sortEl.onchange=e=>{board.sort=e.target.value;renderGrid();};
+  const searchEl=document.getElementById('search');searchEl.value=board.q;searchEl.oninput=e=>{board.q=e.target.value.toLowerCase().trim();renderGrid();};
+  document.getElementById('clear-btn').onclick=()=>{board={q:'',cat:'All',country:'all',sort:'deadline',savedOnly:false};pageBoard();};
+  renderGrid();
+}
+function renderGrid(){
+  const grid=document.getElementById('grid');if(!grid)return;
+  let list=DATA.filter(d=>{
+    if(board.savedOnly&&!saved.has(d.n))return false;
+    const mc=board.cat==='All'||d.cat===board.cat;
+    const mco=board.country==='all'||d.country===board.country;
+    const mq=!board.q||(d.name+d.desc+d.country+d.cat).toLowerCase().includes(board.q);
+    return mc&&mco&&mq;
+  });
+  list.sort((a,b)=>board.sort==='name'?a.name.localeCompare(b.name):new Date(a.deadline)-new Date(b.deadline));
+  const rc=document.getElementById('result-count');if(rc)rc.textContent=list.length;
+  const filtered=board.q||board.cat!=='All'||board.country!=='all'||board.savedOnly;
+  const cb=document.getElementById('clear-btn');if(cb)cb.classList.toggle('show',filtered);
+  grid.innerHTML=list.length?list.map(cardHTML).join(''):`<div class="empty"><span class="serif">${board.savedOnly?'No saved opportunities yet.':'No opportunities match yet.'}</span>${board.savedOnly?'Tap the heart on any card to save it here.':'Try clearing the search or choosing “All”.'}</div>`;
+}
+
+function pageDetail(id){
+  const d=DATA.find(x=>x.n===id);
+  if(!d){app.innerHTML=`<div class="page wrap section"><div class="empty"><span class="serif">Opportunity not found.</span><a class="btn-line" href="#/opportunities">← Back to opportunities</a></div></div>`;return;}
+  const k=CAT[d.cat],soon=isSoon(d.deadline),on=saved.has(d.n);
+  const similar=DATA.filter(x=>x.cat===d.cat&&x.n!==d.n).slice(0,3);
+  app.innerHTML=`<div class="page"><div class="wrap">
+    <div class="breadcrumb"><a href="#/opportunities">Opportunities</a> &nbsp;/&nbsp; <span style="color:var(--ink-soft)">${esc(d.cat)}</span> &nbsp;/&nbsp; <span class="mono">${refOf(d)}</span></div>
+    <div class="detail-hd"><div class="inner">
+      <span class="tag" style="background:${k.c}">${d.cat}</span><h1>${esc(d.name)}</h1>
+      <div class="detail-meta">
+        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8D0F2" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(d.country)}</span>
+        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8D0F2" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Deadline ${fmtDate(d.deadline)}</span>
+        <span class="mono" style="color:#9aa4d6">${refOf(d)}</span>
+      </div></div></div>
+    <div class="detail-body">
+      <div>
+        <div class="panel"><h4>About this opportunity</h4><p>${esc(d.desc)}</p></div>
+        <div class="panel"><h4>Eligibility</h4><ul class="ilist">${d.elig.map(e=>`<li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="${k.c}" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>${esc(e)}</li>`).join('')}</ul></div>
+        <div class="panel"><h4>Benefits</h4><ul class="ilist">${d.ben.map(e=>`<li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="${k.c}" stroke-width="2.4"><circle cx="12" cy="8" r="5"/><path d="M9 21v-5l3 2 3-2v5"/></svg>${esc(e)}</li>`).join('')}</ul></div>
+      </div>
+      <aside><div class="apply-card">
+        <div class="dl">Application deadline</div><div class="big-dl ${soon?'soon':''} mono">${fmtDate(d.deadline)}</div>
+        <button class="btn btn-gold" id="apply-btn">Apply now →</button>
+        <button class="save-row ${on?'on':''}" id="detail-save"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 21s-7-4.7-9.3-9.2C1.2 8.6 2.7 5 6 5c2 0 3.2 1.2 4 2.4C10.8 6.2 12 5 14 5c3.3 0 4.8 3.6 3.3 6.8C19 16.3 12 21 12 21Z"/></svg><span>${on?'Saved':'Save for later'}</span></button>
+        <div class="demo-note">Demo — application is illustrative only</div>
+      </div></aside>
+    </div>
+    ${similar.length?`<section class="section"><div class="sec-head"><div class="kicker mono">You might also like</div><h2>Similar ${d.cat.toLowerCase()} opportunities</h2></div><div class="grid">${similar.map(cardHTML).join('')}</div></section>`:''}
+  </div></div>`;
+  window.scrollTo(0,0);
+  document.getElementById('apply-btn').onclick=e=>{e.target.textContent='✓ Application started (demo)';e.target.style.background='#13876B';e.target.style.color='#fff';};
+  document.getElementById('detail-save').onclick=function(){
+    if(saved.has(d.n))saved.delete(d.n);else saved.add(d.n);
+    const on=saved.has(d.n);this.classList.toggle('on',on);this.querySelector('span').textContent=on?'Saved':'Save for later';updateSaved();
+  };
+}
+
+/* ----- NETWORK ----- */
+function postHTML(p,i){
+  const a=actor(p.by),isUni=p.by[0]==='u',isLiked=liked.has(i);
+  const opp=p.opp!=null?DATA.find(d=>d.n===p.opp):null;
+  return `<article class="ncard post">
+    <div class="post-hd">${avHTML(p.by,46)}
+      <div class="meta"><a class="nm" href="#/profile/${p.by}">${esc(a.name)}</a>${isUni?'<span class="badge-uni">UNIVERSITY</span>':''}
+        <div class="rl">${esc(a.role||a.type+' · '+a.country)}</div><div class="tm">${p.t} ago</div></div>
+    </div>
+    <p class="post-body">${esc(p.text)}</p>
+    ${opp?`<a class="post-opp" href="#/opportunity/${opp.n}"><span class="po-tag" style="background:${CAT[opp.cat].c}">${opp.cat}</span><div><div class="po-t">${esc(opp.name)}</div><div class="po-s">${esc(opp.country)} · Deadline ${fmtDate(opp.deadline)}</div></div><span class="po-go">View →</span></a>`:''}
+    <div class="post-actions">
+      <button class="pa-btn ${isLiked?'liked':''}" data-like="${i}"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M12 21s-7-4.7-9.3-9.2C1.2 8.6 2.7 5 6 5c2 0 3.2 1.2 4 2.4C10.8 6.2 12 5 14 5c3.3 0 4.8 3.6 3.3 6.8C19 16.3 12 21 12 21Z"/></svg><span data-likecount>${p.likes+(isLiked?1:0)}</span></button>
+      <button class="pa-btn"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12 7.6L3 21l1.9-6A8.4 8.4 0 1 1 21 11.5Z"/></svg>${p.comments}</button>
+      <button class="pa-btn"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M4 12v8h16v-8M16 6l-4-4-4 4M12 2v14"/></svg>Share</button>
+    </div>
+  </article>`;
+}
+function suggHTML(id){
+  const a=actor(id),isUni=id[0]==='u',onSet=isUni?following:connected,on=onSet.has(id);
+  return `<div class="sugg">${avHTML(id,40)}<div class="meta"><a class="nm" href="#/profile/${id}">${esc(a.name)}</a><div class="rl">${esc(isUni?a.type+' · '+a.country:a.role)}</div></div>
+    <button class="connect-btn ${on?'on':''}" data-${isUni?'follow':'connect'}="${id}">${on?(isUni?'Following':'Connected'):(isUni?'Follow':'Connect')}</button></div>`;
+}
+function pageNetwork(){
+  const meInit=auth.in?initialsOf(auth.name):'U';
+  const meName=auth.in?auth.name:'Guest';
+  const meRole=auth.in?'UniWoB member':'Sign in to personalise';
+  app.innerHTML=`<div class="page"><section class="section wrap" style="padding-top:34px">
+    <div class="sec-head" style="margin-bottom:20px"><div class="kicker mono">The academic network</div><h2>Network</h2><p>Follow universities, connect with students and researchers, and see what's new across the community.</p></div>
+    <div class="feed-layout">
+      <div class="col-left"><div class="ncard me-card sticky">
+        <div class="me-cover"></div>
+        <div class="me-body"><div class="me-av" style="background:${auth.in?'var(--marigold)':'var(--navy)'};color:${auth.in?'#241a00':'#fff'}">${esc(meInit)}</div>
+          <div class="me-name">${esc(meName)}</div><div class="me-role">${esc(meRole)}</div>
+          <div class="me-stats"><div><div class="v" id="me-conn">${connected.size}</div><div class="k">Connections</div></div><div><div class="v" id="me-foll">${following.size}</div><div class="k">Following</div></div></div>
+        </div>
+        <a class="me-link" href="#/account">${auth.in?'Go to my account →':'Sign in →'}</a>
+      </div></div>
+
+      <div class="col-mid">
+        <div class="ncard composer">
+          <div class="crow"><span class="avatar" style="width:42px;height:42px;background:${auth.in?'var(--marigold)':'var(--navy)'};color:${auth.in?'#241a00':'#fff'};flex:none">${esc(meInit)}</span>
+            <textarea id="composer-text" placeholder="Share an opportunity, update or question…"></textarea></div>
+          <div class="cfoot"><span class="hint">Posting as ${esc(meName)} ${auth.in?'':'(guest)'}</span><button class="btn btn-primary btn-sm" id="post-btn">Post</button></div>
+        </div>
+        <div id="feed">${POSTS.map((p,i)=>postHTML(p,i)).join('')}</div>
+      </div>
+
+      <div class="col-right">
+        <div class="ncard rail sticky">
+          <h4>Universities to follow</h4>${UNIS.slice(0,3).map(u=>suggHTML(u.id)).join('')}
+          <h4 style="margin-top:20px">People you may know</h4>${MEMBERS.slice(0,3).map(m=>suggHTML(m.id)).join('')}
+        </div>
+      </div>
+    </div>
+  </section></div>`;
+  window.scrollTo(0,0);
+  document.getElementById('post-btn').onclick=()=>{
+    const ta=document.getElementById('composer-text'),txt=ta.value.trim();
+    if(!txt){ta.classList.add('err');ta.focus();return;}
+    if(!auth.in){auth={in:true,name:'You',email:''};renderAuthSlot();}
+    MEMBERS.unshift({id:'me',name:auth.name,color:'#C49A4D',country:'',role:'UniWoB member',headline:'',conns:connected.size,interests:[]});
+    POSTS.unshift({by:'me',t:'now',text:txt,opp:null,likes:0,comments:0});
+    pageNetwork();
+  };
+}
+
+/* ----- PROFILE (person or university) ----- */
+function pageProfile(id){
+  const a=actor(id);
+  if(!a){app.innerHTML=`<div class="page wrap section"><div class="empty"><span class="serif">Profile not found.</span><a class="btn-line" href="#/network">← Back to network</a></div></div>`;return;}
+  const isUni=id[0]==='u';
+  const on=(isUni?following:connected).has(id);
+  const posts=POSTS.map((p,i)=>({p,i})).filter(x=>x.p.by===id);
+  const programmes=isUni?(a.progs||[]).map(id=>DATA.find(d=>d.n===id)).filter(Boolean).slice(0,3):[];
+  app.innerHTML=`<div class="page"><div class="wrap">
+    <div class="breadcrumb"><a href="#/network">Network</a> &nbsp;/&nbsp; <span style="color:var(--ink-soft)">${esc(a.name)}</span></div>
+    <div class="prof-cover"></div>
+    <div class="prof-card">
+      <div class="prof-top">
+        <span class="prof-av ${isUni?'square':'circle'}" style="background:${a.color}">${esc(initialsOf(a.name))}</span>
+        <div class="prof-id">
+          <h1>${esc(a.name)}${isUni?'<span class="badge-uni" style="font-size:11px">UNIVERSITY</span>':''}</h1>
+          <div class="role">${esc(isUni?a.type:a.role)}</div>
+          <div class="loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(a.country||'Global')}</div>
+        </div>
+        <div class="prof-actions">
+          <button class="btn ${on?'btn-ghost':'btn-primary'} btn-sm" data-${isUni?'follow':'connect'}="${id}" id="prof-action">${on?(isUni?'Following':'Connected ✓'):(isUni?'+ Follow':'+ Connect')}</button>
+          <a class="btn btn-ghost btn-sm" href="#/network">Message</a>
+        </div>
+      </div>
+      <div class="prof-meta">
+        <div class="pm"><div class="v">${isUni?a.followers.toLocaleString():a.conns}</div><div class="k">${isUni?'Followers':'Connections'}</div></div>
+        ${isUni?`<div class="pm"><div class="v">${programmes.length}</div><div class="k">Open programmes</div></div>`:`<div class="pm"><div class="v">${a.interests.length}</div><div class="k">Interests</div></div>`}
+      </div>
+    </div>
+    <div class="detail-body" style="margin-top:0">
+      <div>
+        <div class="panel"><h4>About</h4><p>${esc(a.headline?a.headline+' ':'')}${esc(a.about||'')}</p>
+          ${(!isUni&&a.interests.length)?`<div class="tagrow">${a.interests.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}</div>`:''}
+          ${(isUni&&a.tags)?`<div class="tagrow">${a.tags.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}</div>`:''}
+        </div>
+        ${programmes.length?`<div class="panel"><h4>Open programmes</h4><div style="display:flex;flex-direction:column;gap:12px">${programmes.map(d=>`<a class="post-opp" href="#/opportunity/${d.n}"><span class="po-tag" style="background:${CAT[d.cat].c}">${d.cat}</span><div><div class="po-t">${esc(d.name)}</div><div class="po-s">Deadline ${fmtDate(d.deadline)}</div></div><span class="po-go">View →</span></a>`).join('')}</div></div>`:''}
+        ${posts.length?`<div class="panel"><h4>Recent activity</h4>${posts.map(x=>`<p style="font-size:14.5px;color:var(--ink-soft);padding:10px 0;border-bottom:1px solid var(--line)">${esc(x.p.text)}</p>`).join('')}</div>`:''}
+      </div>
+      <aside><div class="panel"><h4>${isUni?'Why follow':'Connect to'}</h4><p style="font-size:14px">${isUni?'Get notified when this university shares new scholarships, exchanges and research positions.':'Build your academic network and exchange tips on applications, deadlines and opportunities.'}</p>
+        <div class="demo-note" style="text-align:left;margin-top:12px">Demo — connections are illustrative only.</div></div></aside>
+    </div>
+  </div></div>`;
+  window.scrollTo(0,0);
+}
+
+function pageUniversities(){
+  app.innerHTML=`<div class="page"><section class="section wrap"><div class="split">
+    <div><div class="kicker mono">For universities &amp; programme owners</div>
+      <h2 class="serif" style="font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.01em;line-height:1.08">Share your programme with thousands of students.</h2>
+      <p style="color:var(--muted);font-size:16px;margin-top:16px;max-width:46ch">Post your scholarships, exchanges and research openings to UniWoB and reach motivated students, graduates and young researchers — then build a following in the academic network.</p>
+      <ul class="feat-list">
+        <li><span class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3C4F9E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Live in minutes.</b> Add a listing without contracts or onboarding.</div></li>
+        <li><span class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13876B" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg></span><div><b>Targeted reach.</b> Students filter by category and country to find you.</div></li>
+        <li><span class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B52C0" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div><b>Build a following.</b> Students follow your page and see every new post.</div></li>
+      </ul></div>
+    <div class="form-card" id="uni-form"><div id="uni-view">
+      <h3>Post an opportunity</h3><p class="sub">Fill the form — it appears on the board and the network feed instantly (demo).</p>
+      <div class="field"><label for="u-name">Programme name</label><input id="u-name" type="text" placeholder="e.g. Visby Master Scholarship"></div>
+      <div class="field row">
+        <div><label for="u-cat">Category</label><select id="u-cat"><option value="">Choose…</option><option>Scholarship</option><option>Internship</option><option>Exchange</option><option>Conference</option><option>Research</option></select></div>
+        <div><label for="u-country">Country</label><input id="u-country" type="text" placeholder="e.g. Sweden"></div>
+      </div>
+      <div class="field"><label for="u-deadline">Application deadline</label><input id="u-deadline" type="date"></div>
+      <div class="field"><label for="u-desc">Short description</label><textarea id="u-desc" placeholder="One or two sentences about the opportunity…"></textarea></div>
+      <button class="btn btn-primary" id="u-submit">Publish to board →</button>
+    </div></div></div></section></div>`;
+  document.getElementById('u-submit').onclick=()=>{
+    const g=id=>document.getElementById(id).value.trim();
+    const name=g('u-name'),cat=g('u-cat'),country=g('u-country'),deadline=g('u-deadline'),desc=g('u-desc');
+    let ok=true;[['u-name',name],['u-cat',cat],['u-country',country],['u-deadline',deadline],['u-desc',desc]].forEach(([id,val])=>{const el=document.getElementById(id);el.classList.toggle('err',!val);if(!val)ok=false;});
+    if(!ok)return;
+    if(!CC[country])CC[country]=country.slice(0,2).toUpperCase();
+    const rec={n:nextId++,name,cat,country,deadline,desc,elig:['Open to eligible applicants','Meets programme requirements','Submit before the deadline'],ben:['Listed on the UniWoB board','Shared to the network feed','Direct application link']};
+    DATA.push(rec);
+    POSTS.unshift({by:UNIS[0].id,t:'now',text:`📣 New opportunity posted: ${name}. Applications are open — check the details and apply before the deadline!`,opp:rec.n,likes:0,comments:0});
+    document.getElementById('uni-view').innerHTML=`<div class="success"><div class="ok"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#13876B" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Published!</h3><p><b>${esc(name)}</b> is now live on the board and shared to the network feed.</p><div class="actions"><a class="btn btn-gold" href="#/opportunity/${rec.n}">View listing →</a><a class="btn btn-ghost" href="#/network">See it in the feed</a></div></div>`;
+  };
+}
+
+function pageAbout(){
+  const who=[
+    {c:'#3C4F9E',t:'University students',d:'Find scholarships, internships, exchanges and conferences in one place.',ic:'<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5"/>'},
+    {c:'#6B52C0',t:"Master's & PhD students",d:'Discover research projects, grants and international programmes.',ic:'<path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>'},
+    {c:'#13876B',t:'New graduates',d:'Browse internships, fellowships and professional development tracks.',ic:'<path d="M20 7h-9M14 17H5M17 3l4 4-4 4M7 21l-4-4 4-4"/>'},
+    {c:'#BD3B4E',t:'Young researchers',d:'Explore scientific projects, grants and global collaborations.',ic:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>'},
+    {c:'#BE8A2A',t:'Universities',d:'Share programmes, build a following and connect with the right students.',ic:'<path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/>'},
+  ];
+  app.innerHTML=`<div class="page">
+    <header class="hero" style="padding:60px 0 66px"><div class="wrap hero-in">
+      <div class="eyebrow mono">About the project</div>
+      <h1 style="font-size:clamp(32px,5vw,50px)">A board <em>and</em> a network for global academia.</h1>
+      <p class="lead">Opportunities are scattered across hundreds of websites, PDFs and mailing lists. UniWoB gathers them into one searchable board — and adds a LinkedIn-style network where universities, students and researchers connect, follow and share, so the right opportunity finds you.</p>
+    </div></header>
+    ${howHTML()}
+    <section class="section wrap">
+      <div class="sec-head"><div class="kicker mono">Who it's for</div><h2>Built for everyone in academia</h2></div>
+      <div class="who-grid">${who.map(w=>`<div class="who"><div class="wic" style="background:${w.c}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">${w.ic}</svg></div><h4>${w.t}</h4><p>${w.d}</p></div>`).join('')}</div>
+    </section>
+    ${waitlistHTML()}
+  </div>`;
+  wireWaitlist();
+}
+
+function pageSignin(){
+  app.innerHTML=`<div class="page"><section class="section wrap" style="max-width:460px;margin:0 auto">
+    <div class="form-card" style="margin-top:20px">
+      <h3>Sign in to UniWoB</h3><p class="sub">Access your saved opportunities, network and waitlist status.</p>
+      <div class="field"><label for="si-email">Email</label><input id="si-email" type="email" placeholder="you@university.edu"></div>
+      <div class="field"><label for="si-pass">Password</label><input id="si-pass" type="password" placeholder="••••••••"></div>
+      <button class="btn btn-primary" id="si-go">Continue →</button>
+      <p class="sub" style="text-align:center;margin:18px 0 0">New here? <a href="#/about" style="color:var(--navy);font-weight:600">Learn more</a> or <a href="#/" style="color:var(--navy);font-weight:600">join the waitlist</a>.</p>
+      <div style="margin-top:16px;font-size:12px;color:var(--muted);background:#FBF6EC;border:1px solid #F0E2C4;border-radius:9px;padding:10px 13px;text-align:center">🔒 Demo only — no real account is created or stored.</div>
+    </div></section></div>`;
+  document.getElementById('si-go').onclick=()=>{
+    const email=document.getElementById('si-email');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.classList.add('err');return;}
+    const namePart=email.value.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    auth={in:true,name:namePart,email:email.value};renderAuthSlot();location.hash='#/account';
+  };
+}
+
+function pageAccount(){
+  if(!auth.in){location.hash='#/signin';return;}
+  const savedList=DATA.filter(d=>saved.has(d.n));
+  const initials=initialsOf(auth.name);
+  app.innerHTML=`<div class="page"><section class="section wrap">
+    <div class="dash-hd"><div class="av">${esc(initials)}</div><div style="flex:1"><h1>Welcome back, ${esc(auth.name.split(' ')[0])}</h1><p>${esc(auth.email||'UniWoB member')}</p></div><button class="signout" id="signout">Sign out</button></div>
+    <div class="dash-stats">
+      <div class="dstat"><div class="n">${savedList.length}</div><div class="l">Saved opportunities</div></div>
+      <div class="dstat"><div class="n">${connected.size}</div><div class="l">Connections</div></div>
+      <div class="dstat"><div class="n">${following.size}</div><div class="l">Universities followed</div></div>
+      <div class="dstat"><div class="n">✓</div><div class="l">On the waitlist</div></div>
+    </div>
+    <div class="sec-head" style="margin-top:30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px"><div><div class="kicker mono">Your shortlist</div><h2>Saved opportunities</h2></div><a class="btn-line" href="#/network">Go to network →</a></div>
+    ${savedList.length?`<div class="grid">${savedList.map(cardHTML).join('')}</div>`:`<div class="empty" style="border:1px dashed var(--line);border-radius:16px;margin-top:20px"><span class="serif">Nothing saved yet.</span>Browse the board and tap the heart to build your shortlist. <br><a class="btn btn-primary" style="margin-top:16px" href="#/opportunities">Explore opportunities →</a></div>`}
+  </section></div>`;
+  window.scrollTo(0,0);
+  document.getElementById('signout').onclick=()=>{auth={in:false,name:'',email:''};renderAuthSlot();location.hash='#/';};
+}
+
+/* ============ NAV / DELEGATION / ROUTER ============ */
+function renderAuthSlot(){
+  const slot=document.getElementById('auth-slot');
+  if(auth.in){
+    slot.innerHTML=`<a href="#/account" title="My account" aria-label="My account"><span class="avatar" style="background:var(--marigold);color:#241a00">${esc(initialsOf(auth.name))}</span></a>`;
+  }else{
+    slot.innerHTML=`<button class="btn-line sign-cta" id="nav-signin">Sign in</button> <a href="#/opportunities" class="btn btn-primary">Explore</a>`;
+    const b=document.getElementById('nav-signin');if(b)b.onclick=()=>location.hash='#/signin';
+  }
+}
+function updateSaved(){
+  const c=document.getElementById('saved-count');if(c)c.textContent=saved.size;
+  document.getElementById('saved-pill').classList.toggle('has',saved.size>0);
+}
+
+app.addEventListener('click',e=>{
+  const sv=e.target.closest('[data-save]');
+  if(sv){const id=+sv.dataset.save;if(saved.has(id))saved.delete(id);else saved.add(id);sv.classList.toggle('on',saved.has(id));sv.setAttribute('aria-pressed',saved.has(id));updateSaved();return;}
+  const cn=e.target.closest('[data-connect]');
+  if(cn){const id=cn.dataset.connect;if(connected.has(id))connected.delete(id);else connected.add(id);const on=connected.has(id);cn.classList.toggle('on',on);if(cn.id==='prof-action'){cn.textContent=on?'Connected ✓':'+ Connect';cn.className='btn '+(on?'btn-ghost':'btn-primary')+' btn-sm';cn.dataset.connect=id;}else cn.textContent=on?'Connected':'Connect';const mc=document.getElementById('me-conn');if(mc)mc.textContent=connected.size;return;}
+  const fl=e.target.closest('[data-follow]');
+  if(fl){const id=fl.dataset.follow;if(following.has(id))following.delete(id);else following.add(id);const on=following.has(id);fl.classList.toggle('on',on);if(fl.id==='prof-action'){fl.textContent=on?'Following':'+ Follow';fl.className='btn '+(on?'btn-ghost':'btn-primary')+' btn-sm';fl.dataset.follow=id;}else fl.textContent=on?'Following':'Follow';const mf=document.getElementById('me-foll');if(mf)mf.textContent=following.size;return;}
+  const lk=e.target.closest('[data-like]');
+  if(lk){const i=+lk.dataset.like;if(liked.has(i))liked.delete(i);else liked.add(i);lk.classList.toggle('liked',liked.has(i));const cnt=lk.querySelector('[data-likecount]');cnt.textContent=POSTS[i].likes+(liked.has(i)?1:0);return;}
+});
+document.getElementById('saved-pill').onclick=()=>{
+  if(!saved.size){location.hash='#/opportunities';return;}
+  board={q:'',cat:'All',country:'all',sort:'deadline',savedOnly:true};
+  if(location.hash.replace(/^#\/?/,'').split('/')[0]==='opportunities'){pageBoard();}else{location.hash='#/opportunities';}
+};
+
+function setActiveNav(route){document.querySelectorAll('.nav-links a.lnk').forEach(a=>a.classList.toggle('active',a.dataset.route===route));}
+function router(){
+  const h=location.hash.replace(/^#\/?/,'');const [route,param]=h.split('/');const r=route||'home';
+  if(r==='home'){pageHome();setActiveNav('');}
+  else if(r==='opportunities'){pageBoard();setActiveNav('opportunities');}
+  else if(r==='opportunity'){pageDetail(+param);setActiveNav('opportunities');}
+  else if(r==='network'){pageNetwork();setActiveNav('network');}
+  else if(r==='profile'){pageProfile(param);setActiveNav('network');}
+  else if(r==='universities'){pageUniversities();setActiveNav('universities');}
+  else if(r==='about'){pageAbout();setActiveNav('about');}
+  else if(r==='signin'){pageSignin();setActiveNav('');}
+  else if(r==='account'){pageAccount();setActiveNav('');}
+  else{pageHome();setActiveNav('');}
+  if(['home','opportunities','universities','about','signin'].includes(r))window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',router);
+renderAuthSlot();updateSaved();router();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"db64ab67c8fd450aae9f70f73677cbe8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
